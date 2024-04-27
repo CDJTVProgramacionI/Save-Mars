@@ -1,3 +1,6 @@
+#ifndef FRONTEND_H
+#define FRONTEND_H
+
 #define BLACK "\e[30m"
 #define RED "\e[31m"
 #define GREEN "\e[32m"
@@ -15,3 +18,7 @@
 #define CYAN "\e[96m"
 #define WHITE "\e[97m"
 #define RESET "\e[0m"
+
+void setup_console();
+
+#endif
