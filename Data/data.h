@@ -3,6 +3,8 @@
 
 #define BINNACLE_DIR "bitacora.csv"
 #define RESULT_DIR "resultados.csv"
+#define BINNACLE_OUTPUTS 3
+#define RESULT_OUTPUTS 5
 
 #include "../Logic/Structs/structs.h"
 #include <stdio.h>
