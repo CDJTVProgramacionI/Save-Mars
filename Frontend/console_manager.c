@@ -1,5 +1,31 @@
 #include "frontend.h"
+#include <Windows.h>
 
-//Manejar colores de la consola de windows
+static HANDLE stdoutHandle;
+static DWORD outModeInit;
+
+//Permitir que la consola de windows acepte colores
+void setup_console()
+{
+    DWORD outMode = 0;
+    stdoutHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    if(stdoutHandle == INVALID_HANDLE_VALUE) {
+        exit(GetLastError());
+    }
+    
+    if(!GetConsoleMode(stdoutHandle, &outMode)) {
+        exit(GetLastError());
+    }
+
+    outModeInit = outMode;
+    
+    // Enable ANSI escape codes
+    outMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+
+    if(!SetConsoleMode(stdoutHandle, outMode)) {
+        exit(GetLastError());
+    }
+}    
 
 //Enter para borrar
