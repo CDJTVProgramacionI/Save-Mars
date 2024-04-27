@@ -7,7 +7,6 @@
 
 void main()
 {
-    new_binnacle();
-    int data[3] = {1,2,3};
-    update_binnacle(data);
+    nave jugador = {0,0,0,0,0};
+    save_results(1, &jugador, "Ganó");
 }
