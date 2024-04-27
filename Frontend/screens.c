@@ -46,6 +46,18 @@ void imprimir_instrucciones_nivel(int nivel)
             printf("Los " PURPLE "HOYOS NEGROS\n");
             break;
     }
+
+    //TODO: Enter para borrar
 }
 
 // Display
+
+//Imprimir bitácora
+void imprimir_bitacora(int* bitacora)
+{
+    printf("Nivel: %d\n", bitacora[2]);
+    printf("Distancia recorrida: %d\n", bitacora[0]);
+    printf("Velocidad alcanzada: %d\n", bitacora[1]);
+
+    //TODO: Enter para borrar
+}
