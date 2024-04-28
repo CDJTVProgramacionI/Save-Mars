@@ -4,24 +4,17 @@
 
 // Pantalla principal
 
-//Menú de opciones
+// Menú de opciones
 char menu()
 {
     char opc;
-    do
-    {
-        printf("------ " MAGENTA "MENU" WHITE" ------\n");
-        printf("1. Jugar\n");
-        printf("2. Ver historial de resultados\n");
-        printf("3. Bitácora del último juego\n");
-        printf("4. Salir\n");
-        opc = getch();
-        if(opc < 49 || opc > 52) //Sí el número está fuera del rango 1-4
-        {
-            printf("Opción no válida\n");
-            //TODO: ENTER PARA BORRAR
-        }
-    } while (opc < 49 || opc > 52); //Repetir mientras la opción esté fuera del rango 1-4
+    printf("------ " MAGENTA "MENU" WHITE " ------\n");
+    printf("1. Jugar\n");
+    printf("2. Ver historial de resultados\n");
+    printf("3. Bitácora del último juego\n");
+    printf("4. Salir\n");
+    opc = getch();
+    printf("\e[1;1H\e[2J"); //Borrar pantalla
 
     return opc;
 }
@@ -35,29 +28,29 @@ void imprimir_instrucciones_nivel(int nivel)
     printf("En este nivel, te enfrentaras a:\n");
     switch (nivel)
     {
-        case 1:
-            printf("Los " BRIGHT_GREEN "PLANETAS CON VIDA " WHITE "que no pueden ser destruidos\n");
-            printf("y los " BRIGHT_BLUE "PLANETAS SIN VIDA " WHITE "que pueden ser destruidos.\n");
-            break;
-        case 2:
-            printf("Los " BLUE "ASTEROIDES\n");
-            break;
-        case 3:
-            printf("Los " PURPLE "HOYOS NEGROS\n");
-            break;
+    case 1:
+        printf("Los " BRIGHT_GREEN "PLANETAS CON VIDA " WHITE "que no pueden ser destruidos\n");
+        printf("y los " BRIGHT_BLUE "PLANETAS SIN VIDA " WHITE "que pueden ser destruidos.\n");
+        break;
+    case 2:
+        printf("Los " BLUE "ASTEROIDES\n");
+        break;
+    case 3:
+        printf("Los " PURPLE "HOYOS NEGROS\n");
+        break;
     }
 
-    //TODO: Enter para borrar
+    // TODO: Enter para borrar
 }
 
 // Display
 
-//Imprimir bitácora
-void imprimir_bitacora(int* bitacora)
+// Imprimir bitácora
+void imprimir_bitacora(int *bitacora)
 {
     printf("Nivel: %d\n", bitacora[2]);
     printf("Distancia recorrida: %d\n", bitacora[0]);
     printf("Velocidad alcanzada: %d\n", bitacora[1]);
 
-    //TODO: Enter para borrar
+    // TODO: Enter para borrar
 }
