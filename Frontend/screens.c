@@ -44,3 +44,11 @@ void imprimir_instrucciones_nivel(int nivel)
 }
 
 // Display
+void display(int vida, int velocidad, int misiles)
+{
+    printf(MAGENTA "CAPS. VIDA: %d  ",vida);
+    printf(WHITE "|" CYAN "  VELOCIDAD: %d km/h  ", velocidad);
+    printf(WHITE "|" YELLOW "  MISILES: %d\n", misiles);
+
+    printf(RESET);
+}
