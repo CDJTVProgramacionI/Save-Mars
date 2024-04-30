@@ -1,4 +1,7 @@
 #include "utils.h"
+#include "../Structs/structs.h"
+#include <stdlib.h>
+
 // Mecánica de velocidad
 int velocidad(int distancia, int a, int b)
 {
@@ -10,6 +13,10 @@ int velocidad(int distancia, int a, int b)
     return vel;
 }
 // Generar obstáculos aleatorios
+objeto objetoaleatorio(int nivel,int *objetosPorNivel, int max_objetos)
+{
+    return *objetosPorNivel[nivel][rand()%max_objetos];
+}
 
 // Generar distancias
 int distanciazar()
