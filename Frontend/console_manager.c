@@ -29,3 +29,9 @@ void setup_console()
 }    
 
 //Enter para borrar
+void entercontinuar()
+{
+    printf(WHITE "Presiona enter para continuar...");
+    getch();
+    printf("\e[1;1H\e[2J");
+}
