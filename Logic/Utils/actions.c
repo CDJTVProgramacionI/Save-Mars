@@ -53,3 +53,17 @@ nave destruir_obstaculo(int distancia, objeto *objeto_actual, nave jugador, int 
 }
 
 // Acciones para capsulas
+nave capturar_capsula(int distancia, objeto* objeto_actual, nave jugador)
+{
+    if (distancia <= objeto_actual->maxDist)
+    {
+        printf("Objeto capturado\n");
+        jugador.capsvid += objeto_actual->vidasCorrecto;
+    }
+    else 
+    {
+        printf("Objeto no capturado\n");
+        jugador.capsvid -= objeto_actual->vidasIncorrecto;
+    }
+    jugador.dist += distancia;
+}
