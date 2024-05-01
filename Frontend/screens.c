@@ -18,12 +18,12 @@ void pantallaprincipal()
     printf("                                         @@@.....@@\n");
     printf("                                         @@.@@@@.@@\n");
     printf("                                       @@@@......@@@@\n");
-    printf("                                     @@@@@@@@@@@@@@@@@@              PROGRAMACION I\n");
-    printf("                                     @@@@.@......@.@@@@       Segundo examen departamental\n");
+    printf("                                     @@@@@@@@@@@@@@@@@@              PROGRAMACIÓN I\n");
+    printf("                                     @@@@.@......@.@@@@       Tercer examen departamental\n");
     printf("                                     @@@@.@......@.@@@@             Huerta Johana\n");
-    printf("                                     @@@@.@@@@@@@@.@@@@             Garcia Viridiana\n");
-    printf("                                   @@@@@..@......@..@@@@@           Garcia Tania\n");
-    printf("                                  @@@@@...@.@..@.@....@@@@@         Gomez Camila\n");
+    printf("                                     @@@@.@@@@@@@@.@@@@             García Viridiana\n");
+    printf("                                   @@@@@..@......@..@@@@@           García Tania\n");
+    printf("                                  @@@@@...@.@..@.@....@@@@@         Gómez Camila\n");
     printf("                                 @@@@@....@.@..@.@.....@@@@         Rosas Daniel\n");
     printf("                               @@@@@......@.@..@.@......@@@@@\n");
     printf("                             @@@@@........@......@........@@@@@\n");
@@ -40,7 +40,7 @@ void pantallaprincipal()
 char menu()
 {
     char opc;
-    printf("------ " MAGENTA "MENU" WHITE " ------\n");
+    printf("------ " MAGENTA "MENÚ" WHITE " ------\n");
     printf("1. Jugar\n");
     printf("2. Ver historial de resultados\n");
     printf("3. Bitácora del último juego\n");
@@ -55,7 +55,7 @@ char menu()
 void imprimir_instrucciones_nivel(int nivel)
 {
     printf("NIVEL %d\n", nivel);
-    printf("En este nivel, te enfrentaras a:\n");
+    printf("En este nivel, te enfrentarás a:\n");
     switch (nivel)
     {
     case 1:

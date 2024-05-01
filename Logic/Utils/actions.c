@@ -19,7 +19,7 @@ nave seguir_adelante_obstaculo(int distancia, objeto *objeto_actual, nave jugado
 nave evitar_obstaculo(int distancia, objeto *objeto_actual, nave jugador)
 {
     if (distancia >= objeto_actual->maxDist - 2000)
-        printf("Se esquivo el %s\n", objeto_actual->nombre);
+        printf("Se esquivó el %s\n", objeto_actual->nombre);
     else
     {
         printf("Se ha estrellado con el %s\n", objeto_actual->nombre);
@@ -34,7 +34,7 @@ nave destruir_obstaculo(int distancia, objeto *objeto_actual, nave jugador, int 
 {
     if (distancia <= (objeto_actual->maxDist - 2000) && jugador.velocidad >= maxvel)
     {
-        printf("Se destruyo el %s\n", objeto_actual->nombre);
+        printf("Se destruyó el %s\n", objeto_actual->nombre);
         jugador.capsvid -= objeto_actual->vidasCorrecto;
         jugador.misiles -= objeto_actual->misilesCorrecto;
     }
