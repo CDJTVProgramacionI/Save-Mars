@@ -2,11 +2,12 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <conio.h>
+#include <locale.h>
 
 static HANDLE stdoutHandle;
 static DWORD outModeInit;
 
-//Permitir que la consola de windows acepte colores
+//Permitir que la consola de windows acepte colores y caracteres especiales
 void setup_console()
 {
     DWORD outMode = 0;
@@ -28,7 +29,10 @@ void setup_console()
     if(!SetConsoleMode(stdoutHandle, outMode)) {
         exit(GetLastError());
     }
-}    
+
+    setlocale(LC_ALL, "es_ES.UTF-8");
+}  
+
 
 //Enter para borrar
 void entercontinuar()

@@ -10,6 +10,10 @@ void main()
     int juego = 1;
     char opc;
 
+    //configurar consola
+    setup_console();
+
+
     // Pantalla principal
     pantallaprincipal();
     
@@ -31,7 +35,7 @@ void main()
             case '4': // Salir
                 break;
             default:
-                printf("Opción no válida");
+                printf("Opción no válida\n");
                 break;
         }
 
