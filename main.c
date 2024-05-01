@@ -11,11 +11,12 @@ void main()
     char opc;
 
     // Pantalla principal
-
-    // Menu
-
+    pantallaprincipal();
+    
     do
     {
+        //Presentar menú
+        opc = menu();
         switch (opc)
         {
             case '1':
@@ -34,10 +35,6 @@ void main()
                 break;
         }
 
-        //Enter para borrar
+        entercontinuar();
     } while (opc != '4');
-
-    //Este es un comentario
-    //cambios
-    //cambios
 }

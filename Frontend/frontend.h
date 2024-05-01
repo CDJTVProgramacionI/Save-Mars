@@ -19,6 +19,9 @@
 #define WHITE "\e[97m"
 #define RESET "\e[0m"
 
+void pantallaprincipal();
+char menu();
+
 void setup_console();
 void entercontinuar();
 

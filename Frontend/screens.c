@@ -3,7 +3,7 @@
 #include <conio.h>
 
 // Pantalla principal
-void  pantallaprincipal()
+void pantallaprincipal()
 {
     printf(" ______     ______     __   __   ______           __    __     ______     ______     ______\n");
 	printf("/\\  ___\\   /\\  __ \\   /\\ \\ / /  /\\  ___\\         /\\ \"-./  \\   /\\  __ \\   /\\  == \\   /\\  ___\\\n");   
@@ -33,10 +33,7 @@ void  pantallaprincipal()
     printf("                              @@@@@@@@@@@....@@....@.@@@@@@@@@\n");
     printf("                                       @@@@@@@@@@@@@@\n");
 	
-	printf("Presiona enter para continuar...");
-    getch();
-    printf("\e[1;1H\e[2J");    
-    return;
+	entercontinuar();
 }
 
 // Menú de opciones
