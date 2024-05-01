@@ -13,9 +13,9 @@ int velocidad(int distancia, int a, int b)
     return vel;
 }
 // Generar obstáculos aleatorios
-objeto objetoaleatorio(int nivel,int *objetosPorNivel, int max_objetos)
+objeto objetoaleatorio(int nivel, objeto *objetosPorNivel, int max_objetos)
 {
-    return *objetosPorNivel[nivel][rand()%max_objetos];
+    return objetosPorNivel[rand()%max_objetos];
 }
 
 // Generar distancias
