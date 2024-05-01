@@ -20,5 +20,6 @@
 #define RESET "\e[0m"
 
 void setup_console();
+void entercontinuar();
 
 #endif

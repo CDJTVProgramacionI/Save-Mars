@@ -73,7 +73,7 @@ void imprimir_instrucciones_nivel(int nivel)
         break;
     }
 
-    // TODO: Enter para borrar
+    entercontinuar();
 }
 
 // Display
