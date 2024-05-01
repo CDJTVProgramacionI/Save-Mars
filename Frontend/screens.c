@@ -54,8 +54,6 @@ char menu()
     return opc;
 }
 
-// Instrucciones generales
-
 // Instrucciones por nivel
 void imprimir_instrucciones_nivel(int nivel)
 {
