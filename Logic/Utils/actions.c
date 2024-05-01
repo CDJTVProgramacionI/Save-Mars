@@ -1,6 +1,7 @@
 #include "utils.h"
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
+#include <stdio.h>
 
 nave seguir_adelante_obstaculo(int distancia, objeto *objeto_actual, nave jugador, int maxvel)
 {
@@ -53,14 +54,14 @@ nave destruir_obstaculo(int distancia, objeto *objeto_actual, nave jugador, int 
 }
 
 // Acciones para capsulas
-nave capturar_capsula(int distancia, objeto* objeto_actual, nave jugador)
+nave capturar_capsula(int distancia, objeto *objeto_actual, nave jugador)
 {
     if (distancia <= objeto_actual->maxDist)
     {
         printf("Objeto capturado\n");
         jugador.capsvid += objeto_actual->vidasCorrecto;
     }
-    else 
+    else
     {
         printf("Objeto no capturado\n");
         jugador.capsvid -= objeto_actual->vidasIncorrecto;

@@ -1,5 +1,7 @@
 #include "frontend.h"
 #include <Windows.h>
+#include <stdio.h>
+#include <conio.h>
 
 static HANDLE stdoutHandle;
 static DWORD outModeInit;

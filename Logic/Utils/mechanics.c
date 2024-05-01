@@ -19,9 +19,9 @@ objeto objetoaleatorio(int nivel, objeto *objetosPorNivel, int max_objetos)
 }
 
 // Generar distancias
-int distanciazar()
+int* distanciazar()
 {
-    int distobst[7];
+    int *distobst = (int*)malloc(7*sizeof(int));
     for (int i = 0; i < 7; i++)
     {
         if (i == 0)
