@@ -3,6 +3,7 @@
 #include "Logic/Levels/levels.h"
 #include "Logic/Utils/utils.h"
 #include "Logic/Structs/structs.h"
+#include <time.h>
 
 void main()
 {
@@ -10,8 +11,14 @@ void main()
     int juego = 1;
     char opc;
 
+    // Establecer la semilla para números aleatorios
+    // La función time() nos permite que sea más aleatorio el número
+    srand(time(0));
+
     //configurar consola
     setup_console();
+
+
 
 
     // Pantalla principal

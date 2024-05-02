@@ -1,9 +1,6 @@
 #include "levels.h"
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <time.h>
 
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
@@ -18,10 +15,6 @@
 
 void nivel2()
 {
-    // Establecer la semilla para números aleatorios
-    // La función time() nos permite que sea más aleatorio el número
-    srand(time(0));
-
     // Datos del jugador
     nave jugador = {MAXVIDAS, MAXMISILES, 0, MAXVEL, 0};
 
