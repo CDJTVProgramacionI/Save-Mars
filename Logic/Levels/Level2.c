@@ -15,9 +15,9 @@
 #define NIVEL 1
 #define MAXOBJETOS 2
 
-void nivel2()
+short nivel2()
 {
-    short int contdecisiones = 1;
+    short int contdecisiones = 1, siguiente_nivel = 0;
     int distancia, supera = 0;
     objeto *objeto_actual;
     char op = 'c';
@@ -137,6 +137,15 @@ void nivel2()
     }
 
     // Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
+    if (jugador.misiles >= MINMISILES && jugador.capsvid >= MINVIDAS)
+    {
+        ganar();
+        siguiente_nivel = 1;
+    }
+    else
+    {
+        siguiente_nivel = perder();
+    }
 
-    // FIN DE NIVEL
+    return siguiente_nivel;
 }
