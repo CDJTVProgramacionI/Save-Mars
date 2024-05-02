@@ -2,6 +2,7 @@
 #include "../Structs/structs.h"
 #include "../../Frontend/frontend.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <conio.h>
 
 void ganar(objeto *objetosPorNivel)
