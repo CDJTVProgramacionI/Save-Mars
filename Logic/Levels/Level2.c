@@ -27,7 +27,7 @@ void nivel2()
     nave jugador = {MAXVIDAS, MAXMISILES, 0, MAXVEL, 0};
 
     // Obstáculos por nivel
-    objeto *objetosPorNivel = (objeto *)calloc(2, sizeof(objeto));
+    objeto *objetosPorNivel = (objeto *)calloc(MAXOBJETOS, sizeof(objeto));
 
     // Crear objetos nivel 2
     objetosPorNivel[0].esObstaculo = 0;
