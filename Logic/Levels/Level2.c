@@ -61,7 +61,7 @@ short nivel2()
         display(jugador);
 
         // Generar objeto al azar
-        objeto_actual = objetoaleatorio(NIVEL, objetosPorNivel, MAXOBJETOS);
+        objeto_actual = objetoaleatorio(objetosPorNivel, MAXOBJETOS);
 
         // Mostrar objeto generado
         printf("Un %s" WHITE " se encuentra a %d km de distancia\n", objeto_actual->nombre, distancia);
@@ -139,12 +139,12 @@ short nivel2()
     // Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
     if (jugador.misiles >= MINMISILES && jugador.capsvid >= MINVIDAS)
     {
-        ganar();
+        ganar(objetosPorNivel);
         siguiente_nivel = 1;
     }
     else
     {
-        siguiente_nivel = perder();
+        siguiente_nivel = perder(objetosPorNivel);
     }
 
     return siguiente_nivel;

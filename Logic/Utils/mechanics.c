@@ -8,7 +8,7 @@ int velocidad(int amplitud, int valor_min)
     return (rand() % amplitud + valor_min) * 1000;
 }
 // Generar obstáculos aleatorios
-objeto* objetoaleatorio(int nivel, objeto *objetosPorNivel, int max_objetos)
+objeto* objetoaleatorio(objeto *objetosPorNivel, int max_objetos)
 {
     return &objetosPorNivel[rand()%max_objetos];
 }
