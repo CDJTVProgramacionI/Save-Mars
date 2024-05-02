@@ -16,6 +16,12 @@
 
 void nivel1()
 {
+    short int contdecisiones = 1;
+    int distancia, supera = 0;
+    objeto *objeto_actual;
+    char op = 'c';
+    int *dist_obstaculos = distanciazar();
+    
     // Datos del jugador
     nave jugador = {MAXVIDAS, MAXMISILES, 0, MAXVEL, 0};
 
@@ -40,12 +46,6 @@ void nivel1()
     objetosPorNivel[2].esObstaculo = 1;
     objetosPorNivel[2].nombre = BRIGHT_GREEN "PLANETA CON VIDA";
     objetosPorNivel[2].maxDist = 10000;
-
-    short int contdecisiones = 1;
-    int distancia, supera = 0;
-    objeto *objeto_actual;
-    char op = 'c';
-    int *dist_obstaculos = distanciazar();
 
     imprimir_instrucciones_nivel(NIVEL);
 

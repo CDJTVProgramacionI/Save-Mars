@@ -15,6 +15,12 @@
 
 void nivel2()
 {
+    short int contdecisiones = 1;
+    int distancia, supera = 0;
+    objeto *objeto_actual;
+    char op = 'c';
+    int *dist_obstaculos = distanciazar();
+    
     // Datos del jugador
     nave jugador = {MAXVIDAS, MAXMISILES, 0, MAXVEL, 0};
 
@@ -35,12 +41,6 @@ void nivel2()
     objetosPorNivel[1].misilesIncorrecto = 40;
     objetosPorNivel[1].vidasCorrecto = 30;
     objetosPorNivel[1].vidasIncorrecto = 20;
-
-    short int contdecisiones = 1;
-    int distancia, supera = 0;
-    objeto *objeto_actual;
-    char op = 'c';
-    int *dist_obstaculos = distanciazar();
 
     imprimir_instrucciones_nivel(NIVEL);
 
