@@ -18,9 +18,6 @@ void main()
     //configurar consola
     setup_console();
 
-
-
-
     // Pantalla principal
     pantallaprincipal();
     
