@@ -6,13 +6,13 @@
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
 
-#define MAXMISILES 7800
-#define MAXVIDAS 1900
-#define MINMISILES 7100
-#define MINVIDAS 1500
+#define MAXMISILES 8000
+#define MAXVIDAS 2000
+#define MINMISILES 7800
+#define MINVIDAS 1900
 #define MAXVEL 20000
-#define NIVEL 1
-#define MAXOBJETOS 2
+#define NIVEL 0
+#define MAXOBJETOS 3
 
 void nivel1()
 {
@@ -22,20 +22,24 @@ void nivel1()
     // Obstáculos por nivel
     objeto *objetosPorNivel = (objeto *)calloc(2, sizeof(objeto));
 
-    // Crear objetos nivel 2
+    //Crear objetos por nivel
     objetosPorNivel[0].esObstaculo = 0;
     objetosPorNivel[0].nombre = BRIGHT_RED "OBJETO DE INTERES";
-    objetosPorNivel[0].maxDist = 4000;
-    objetosPorNivel[0].vidasCorrecto = 10;
-    objetosPorNivel[0].vidasIncorrecto = 7;
+    objetosPorNivel[0].maxDist = 6000;
+    objetosPorNivel[0].vidasCorrecto = 5;
+    objetosPorNivel[0].vidasIncorrecto = 3;
 
     objetosPorNivel[1].esObstaculo = 1;
-    objetosPorNivel[1].nombre = BLUE "ASTEROIDE";
-    objetosPorNivel[1].maxDist = 8000;
-    objetosPorNivel[1].misilesCorrecto = 60;
-    objetosPorNivel[1].misilesIncorrecto = 40;
-    objetosPorNivel[1].vidasCorrecto = 30;
-    objetosPorNivel[1].vidasIncorrecto = 20;
+    objetosPorNivel[1].nombre = BRIGHT_BLUE "PLANETA SIN VIDA";
+    objetosPorNivel[1].maxDist = 10000;
+    objetosPorNivel[1].misilesCorrecto = 50;
+    objetosPorNivel[1].misilesIncorrecto = 25;
+    objetosPorNivel[1].vidasCorrecto = 25;
+    objetosPorNivel[1].vidasIncorrecto = 15;
+
+    objetosPorNivel[2].esObstaculo = 1;
+    objetosPorNivel[2].nombre = BRIGHT_GREEN "PLANETA CON VIDA";
+    objetosPorNivel[2].maxDist = 10000;
 
     short int contdecisiones = 1;
     int distancia, supera = 0;
@@ -50,7 +54,7 @@ void nivel1()
         // Si ya avanzó 100 km, variar la velocidad aleatoriamente
         if (jugador.dist - supera >= 100)
         {
-            jugador.velocidad = velocidad(9, 20);
+            jugador.velocidad = velocidad(9, 12);
         }
 
         // Calcular distancia
