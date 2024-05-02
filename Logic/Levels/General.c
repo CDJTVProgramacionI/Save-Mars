@@ -1,6 +1,8 @@
 #include "levels.h"
 #include "../Structs/structs.h"
 #include "../../Frontend/frontend.h"
+#include <stdio.h>
+#include <conio.h>
 
 void ganar(objeto *objetosPorNivel)
 {
