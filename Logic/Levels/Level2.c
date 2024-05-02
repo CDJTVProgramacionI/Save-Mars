@@ -20,7 +20,7 @@ void nivel2()
     objeto *objeto_actual;
     char op = 'c';
     int *dist_obstaculos = distanciazar();
-    
+
     // Datos del jugador
     nave jugador = {MAXVIDAS, MAXMISILES, 0, MAXVEL, 0};
 
@@ -125,7 +125,7 @@ void nivel2()
                         jugador.dist += 25;
                         break;
                     default:
-                        printf("No presiono una opcion correcta.\n");
+                        printf("No presionó una opcion correcta.\n");
                         break;
                 }
             } while (op != 's' && op != 'S' && op != 'C' && op != 'c' && op != 's' && op != 'S');
