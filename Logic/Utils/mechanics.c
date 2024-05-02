@@ -2,20 +2,15 @@
 #include "../Structs/structs.h"
 #include <stdlib.h>
 
-// Mecánica de velocidad
-int velocidad(int distancia, int a, int b)
+//Variar velocidad aleatoriamente
+int velocidad(int amplitud, int valor_min)
 {
-    int vel = 0;
-    // Si ya avanzó 100 km, variar la velocidad aleatoriamente
-    if (distancia >= 100)
-        vel = (rand() % a + b) * 1000;
-
-    return vel;
+    return (rand() % amplitud + valor_min) * 1000;
 }
 // Generar obstáculos aleatorios
-objeto objetoaleatorio(int nivel, objeto *objetosPorNivel, int max_objetos)
+objeto* objetoaleatorio(int nivel, objeto *objetosPorNivel, int max_objetos)
 {
-    return objetosPorNivel[rand()%max_objetos];
+    return &objetosPorNivel[rand()%max_objetos];
 }
 
 // Generar distancias
