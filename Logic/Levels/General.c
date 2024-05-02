@@ -2,32 +2,43 @@
 #include "../Structs/structs.h"
 #include "../../Frontend/frontend.h"
 
-void ganar(objeto *objetosPorNivel, int nivel)
+void ganar(objeto *objetosPorNivel)
 {
     free(objetosPorNivel);
-    printf("Ganaste el nivel %d\n", nivel);
+    printf("Ganaste el nivel\n");
     entercontinuar();
 }
 
-short perder(objeto *objetosPorNivel, int nivel)
+short perder(objeto *objetosPorNivel)
 {
     char op;
 
     printf("Perdiste\n");
-    display(); //Mostrar últimos resultados
+    display(); // Mostrar últimos resultados
 
     // obtener input del usuario
     do
     {
-        printf(WHITE "Deseas continuar? [s/n]\n");
+        printf(WHITE "¿Deseas continuar? [s/n]\n");
         op = getch();
         printf("\e[1;1H\e[2J"); // Borrar pantalla
 
-        if (op != 's' && op != 'S' && op != 'N' && op != 'n')
-            printf("No presiono una opcion correcta\n");
+        if (op == 'n' || op == 'N')
+        {
+            free(objetosPorNivel);
+        }
+        else if(op == 's' || op == 'S')
+        {
+            entercontinuar();
+        }
+        else
+        {
+            printf("No presionó una opción válida\n");
+        }
+            
     } while (op != 's' && op != 'S' && op != 'N' && op != 'n');
 
     //-1 es para salir del juego y volver al menú de inicio
-    //0 es para repetir el nivel
+    // 0 es para repetir el nivel
     return op == 's' || op == 'S' ? 0 : -1;
 }
