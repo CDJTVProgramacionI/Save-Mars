@@ -28,7 +28,8 @@ void main()
         switch (opc)
         {
             case '1':
-                // Juego nuevo
+                //Comenzar un juego nuevo en el nivel 1
+                nivel1();
                 break;
             case '2':
                 // Imprimir última bitácora
