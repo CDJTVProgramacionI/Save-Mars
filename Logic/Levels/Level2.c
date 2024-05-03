@@ -15,9 +15,9 @@
 #define NIVEL 1
 #define MAXOBJETOS 2
 
-short nivel2()
+void nivel2()
 {
-    short int contdecisiones = 1, siguiente_nivel = 0;
+    short int contdecisiones = 1;
     int distancia, supera = 0;
     objeto *objeto_actual;
     char op = 'c';
@@ -80,7 +80,7 @@ short nivel2()
                 {
                     case 's':
                     case 'S':
-                        seguir_adelante_obstaculo(distancia, objeto_actual, jugador, 20);
+                        seguir_adelante_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
                         break;
                     // Evitar un obstáculo
                     case 'E':
@@ -90,7 +90,7 @@ short nivel2()
                     // Destruir un obstáculo
                     case 'D':
                     case 'd':
-                        destruir_obstaculo(distancia, objeto_actual, jugador, 20);
+                        destruir_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
                         break;
                     default:
                         printf("No presionó una opción válida.\n");
@@ -136,16 +136,24 @@ short nivel2()
         entercontinuar();
     }
 
+    free(objetosPorNivel);
+
     // Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
     if (jugador.misiles >= MINMISILES && jugador.capsvid >= MINVIDAS)
     {
-        ganar(objetosPorNivel);
-        siguiente_nivel = 1;
+        nivel3();
+        printf("Ganaste el nivel\n");
+        entercontinuar();
     }
     else
     {
-        siguiente_nivel = perder(objetosPorNivel);
+        if(perder() == 's')
+        {
+            nivel2();
+        }
+        else
+        {
+            finalizarJuego();
+        }
     }
-
-    return siguiente_nivel;
 }
