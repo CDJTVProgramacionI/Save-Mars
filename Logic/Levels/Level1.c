@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <ctype.h>
 
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
@@ -66,8 +67,12 @@ void nivel1()
         // Display
         display(jugador);
 
-        // Generar objeto al azar
-        objeto_actual = objetoaleatorio(objetosPorNivel, MAXOBJETOS);
+        // Generar objeto al azar si la última decisión fue capturar, destruir o esquivar
+        if(tolower(op) == 'c' || tolower(op) == 'd' || tolower(op) == 'e')
+        {
+            objeto_actual = objetoaleatorio(objetosPorNivel, MAXOBJETOS);
+        }
+        
 
         // Mostrar objeto generado
         printf("Un %s" WHITE " se encuentra a %d km de distancia\n", objeto_actual->nombre, distancia);
