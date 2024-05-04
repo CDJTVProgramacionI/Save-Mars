@@ -156,7 +156,7 @@ void nivel1()
         }
 
         entercontinuar();
-        update_binnacle(&jugador, NIVEL + 1);
+        update_binnacle(&jugador, NIVEL + 1, contdecisiones);
     }
 
     free(objetosPorNivel);
