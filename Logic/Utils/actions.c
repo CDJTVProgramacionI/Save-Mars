@@ -60,6 +60,7 @@ nave capturar_capsula(int distancia, objeto *objeto_actual, nave jugador)
     {
         printf("Objeto capturado\n");
         jugador.capsvid += objeto_actual->vidasCorrecto;
+        jugador.objetosCapturados++;
     }
     else
     {
