@@ -129,7 +129,7 @@ void nivel1()
                 // Decisiones para capturar o esquivar
                 case 'c':
                 case 'C':
-                    capturar_capsula(distancia, objeto_actual, jugador);
+                    jugador = capturar_capsula(distancia, objeto_actual, jugador);
                     contdecisiones++;
                     break;
                 case 's':
