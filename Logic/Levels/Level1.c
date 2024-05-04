@@ -160,6 +160,8 @@ void nivel1()
     }
 
     free(objetosPorNivel);
+    free(objeto_actual);
+    free(dist_obstaculos);
 
     // Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
     if (jugador.misiles >= MINMISILES && jugador.capsvid >= MINVIDAS)
