@@ -33,7 +33,7 @@ void imprimirHistorico()
         printf("Capsulas de vida finales: %d\n", data[0]);
         printf("Misiles finales: %d\n", data[1]);
         printf("Objetos de interés capturados: %d\n", data[2]);
-        printf("Resultado del juego: %s\n", data[2] == 1 ? "Ganó" : "Perdió");
+        printf("Resultado del juego: %s\n", data[3] == 1 ? "Ganó" : "Perdió");
         if(juegos%5 == 0)
         {
             entercontinuar();
