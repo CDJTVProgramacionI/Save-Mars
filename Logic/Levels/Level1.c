@@ -29,7 +29,7 @@ void nivel1()
     // Obstáculos por nivel
     objeto *objetosPorNivel = (objeto *)calloc(MAXOBJETOS, sizeof(objeto));
 
-    //Crear objetos por nivel
+    // Crear objetos por nivel
     objetosPorNivel[0].esObstaculo = 0;
     objetosPorNivel[0].nombre = BRIGHT_RED "OBJETO DE INTERES";
     objetosPorNivel[0].maxDist = 6000;
@@ -82,23 +82,30 @@ void nivel1()
 
                 switch (op)
                 {
-                    case 's':
-                    case 'S':
-                        seguir_adelante_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
-                        break;
-                    // Evitar un obstáculo
-                    case 'E':
-                    case 'e':
-                        evitar_obstaculo(distancia, objeto_actual, jugador);
-                        break;
-                    // Destruir un obstáculo
-                    case 'D':
-                    case 'd':
-                        destruir_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
-                        break;
-                    default:
-                        printf("No presionó una opción válida.\n");
-                        break;
+                case 's':
+                case 'S':
+                    seguir_adelante_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
+                    break;
+                // Evitar un obstáculo
+                case 'E':
+                case 'e':
+                    evitar_obstaculo(distancia, objeto_actual, jugador);
+                    break;
+                // Destruir un obstáculo
+                case 'D':
+                case 'd':
+                    if (strcmp(BRIGHT_GREEN "PLANETA CON VIDA", objeto_actual->nombre) == 0)
+                    {
+                        printf("Un planeta con vida no puede ser destruido\n");
+                    }
+                    else
+                    {
+                        destruir_obstaculo(distancia, *objeto_actual, jugador, 12);
+                    }
+                    break;
+                default:
+                    printf("No presionó una opción válida.\n");
+                    break;
                 }
             } while (op != 'e' && op != 'E' && op != 'D' && op != 'd' && op != 's' && op != 'S');
         }
@@ -114,25 +121,25 @@ void nivel1()
 
                 switch (op)
                 {
-                    // Decisiones para capturar o esquivar
-                    case 'c':
-                    case 'C':
-                        capturar_capsula(distancia, objeto_actual, jugador);
-                        break;
-                    case 's':
-                    case 'S':
-                        // Se saltó la capsula por completo
-                        if (distancia <= 25)
-                        {
-                            // Ir al siguiente obstáculo
-                            op = 'c';
-                            contdecisiones++;
-                        }
-                        jugador.dist += 25;
-                        break;
-                    default:
-                        printf("No presionó una opcion correcta.\n");
-                        break;
+                // Decisiones para capturar o esquivar
+                case 'c':
+                case 'C':
+                    capturar_capsula(distancia, objeto_actual, jugador);
+                    break;
+                case 's':
+                case 'S':
+                    // Se saltó la capsula por completo
+                    if (distancia <= 25)
+                    {
+                        // Ir al siguiente obstáculo
+                        op = 'c';
+                        contdecisiones++;
+                    }
+                    jugador.dist += 25;
+                    break;
+                default:
+                    printf("No presionó una opcion correcta.\n");
+                    break;
                 }
             } while (op != 's' && op != 'S' && op != 'C' && op != 'c' && op != 's' && op != 'S');
         }
@@ -151,7 +158,7 @@ void nivel1()
     }
     else
     {
-        if(perder() == 's')
+        if (perder() == 's')
         {
             nivel1();
         }
