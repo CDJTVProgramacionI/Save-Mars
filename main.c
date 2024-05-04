@@ -12,7 +12,7 @@ void imprimirUltimaBitacora()
     while (!feof(bitacora))
     {
         printf("**********************************************");
-        int* data = read_n_outputs(BINNACLE_DIR, BINNACLE_OUTPUTS);
+        int* data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
         printf("Nivel jugado: %d", data[2]);
         printf("Distancia alcanzada: %1", data[0]);
         printf("Velocidad del turno; %d", data[1]);

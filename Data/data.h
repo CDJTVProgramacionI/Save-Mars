@@ -9,7 +9,7 @@
 #include "../Logic/Structs/structs.h"
 #include <stdio.h>
 
-int* read_n_outputs(const char*, int);
+int* read_n_outputs(FILE*, int);
 
 void new_binnacle();
 void update_binnacle(nave*, int);

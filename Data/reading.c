@@ -26,11 +26,9 @@ int get_number(FILE *file)
 }
 
 //Leer del archivo la cantidad de entradas especificadas
-int *read_n_outputs(const char *dir, int output_size)
+int *read_n_outputs(FILE* file, int output_size)
 {
-
     int *data = calloc(output_size, sizeof(int));
-    FILE *file = fopen(dir, "r");
 
     //Verificar que no hayan errores
     if (data == NULL || file == NULL)
@@ -44,8 +42,6 @@ int *read_n_outputs(const char *dir, int output_size)
     {
         data[i] = get_number(file);
     }
-
-    fclose(file);
 
     return data;
 }
