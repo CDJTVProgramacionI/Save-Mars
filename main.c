@@ -8,7 +8,6 @@
 void main()
 {
     // Declarar variables
-    int juego = 1;
     char opc;
 
     // Establecer la semilla para números aleatorios
