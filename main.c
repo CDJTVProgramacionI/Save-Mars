@@ -1,7 +1,6 @@
 #include "Data/data.h"
 #include "Frontend/frontend.h"
 #include "Logic/Levels/levels.h"
-#include "Logic/Structs/structs.h"
 #include <time.h>
 #include <stdio.h>
 
@@ -37,6 +36,7 @@ void imprimirHistorico()
         if(juegos%5 == 0)
         {
             entercontinuar();
+            printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
         }
         juegos++;
     }
