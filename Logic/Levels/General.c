@@ -27,8 +27,6 @@ char perder()
             
     } while (op != 's' && op != 'S' && op != 'N' && op != 'n');
 
-    //-1 es para salir del juego y volver al menú de inicio
-    // 0 es para repetir el nivel
     return tolower(op);
 }
 
