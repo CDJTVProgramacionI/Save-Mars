@@ -14,7 +14,7 @@ void imprimirUltimaBitacora()
         printf("**********************************************");
         int* data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
         printf("Nivel: %d, turno: %d", data[2], data[3]);
-        printf("Distancia alcanzada: %1", data[0]);
+        printf("Distancia alcanzada: %d", data[0]);
         printf("Velocidad del turno; %d", data[1]);
     }
     fclose(bitacora);    
