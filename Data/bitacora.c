@@ -7,27 +7,17 @@ void new_binnacle()
 {
     FILE *binnacle = fopen(BINNACLE_DIR, "w");
 
-    if (binnacle != NULL)
-    {
-        fputs("0,0,0", binnacle);
-    }
-    else // Hubo un error al abrir el archivo
-    {
-        printf("Ha ocurrido un error!");
-        exit(0);
-    }
-
     fclose(binnacle);
 }
 
-void update_binnacle(nave* jugador, int nivel)
+void update_binnacle(nave* jugador, int nivel, short turno)
 {
     FILE *binnacle = fopen(BINNACLE_DIR, "a");
 
     if (binnacle != NULL)
     {
         // Datos de la bitácora
-        fprintf(binnacle, "%d,%d,%d", jugador->dist, jugador->velocidad, nivel);
+        fprintf(binnacle, "%d,%d,%d,%d", jugador->dist, jugador->velocidad, nivel, turno);
     }
     else // Hubo un error al abrir el archivo
     {
