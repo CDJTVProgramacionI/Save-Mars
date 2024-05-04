@@ -70,11 +70,14 @@ void main()
                 break;
             case '2':
                 // Imprimir última bitácora
+                imprimirUltimaBitacora();
                 break;
             case '3':
                 // Imprimir historico de juegos
+                imprimirHistorico();
                 break;
             case '4': // Salir
+                printf("¡Gracias por jugar!");
                 break;
             default:
                 printf("Opción no válida\n");
