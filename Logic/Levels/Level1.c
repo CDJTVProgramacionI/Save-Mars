@@ -86,12 +86,13 @@ void nivel1()
                 {
                 case 's':
                 case 'S':
-                    seguir_adelante_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
+                    jugador = seguir_adelante_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
                     break;
                 // Evitar un obstáculo
                 case 'E':
                 case 'e':
-                    evitar_obstaculo(distancia, objeto_actual, jugador);
+                    jugador = evitar_obstaculo(distancia, objeto_actual, jugador);
+                    contdecisiones++;
                     break;
                 // Destruir un obstáculo
                 case 'D':
@@ -99,11 +100,13 @@ void nivel1()
                     if (strcmp(BRIGHT_GREEN "PLANETA CON VIDA", objeto_actual->nombre) == 0)
                     {
                         printf("Un planeta con vida no puede ser destruido\n");
+                        jugador.capsvid = 0;
                     }
                     else
                     {
-                        destruir_obstaculo(distancia, *objeto_actual, jugador, 12);
+                        jugador = (distancia, *objeto_actual, jugador, 12);
                     }
+                    contdecisiones++;
                     break;
                 default:
                     printf("No presionó una opción válida.\n");
@@ -127,6 +130,7 @@ void nivel1()
                 case 'c':
                 case 'C':
                     capturar_capsula(distancia, objeto_actual, jugador);
+                    contdecisiones++;
                     break;
                 case 's':
                 case 'S':
