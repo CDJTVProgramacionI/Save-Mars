@@ -1,9 +1,24 @@
 #include "Data/data.h"
 #include "Frontend/frontend.h"
 #include "Logic/Levels/levels.h"
-#include "Logic/Utils/utils.h"
 #include "Logic/Structs/structs.h"
 #include <time.h>
+#include <stdio.h>
+
+void imprimirUltimaBitacora()
+{
+    FILE *bitacora = fopen(BINNACLE_DIR, "r");
+    printf("----------------- BITÁCORA -----------------------");
+    while (!feof(bitacora))
+    {
+        printf("**********************************************");
+        int* data = read_n_outputs(BINNACLE_DIR, BINNACLE_OUTPUTS);
+        printf("Nivel jugado: %d", data[2]);
+        printf("Distancia alcanzada: %1", data[0]);
+        printf("Velocidad del turno; %d", data[1]);
+    }
+    fclose(bitacora);    
+}
 
 void main()
 {
