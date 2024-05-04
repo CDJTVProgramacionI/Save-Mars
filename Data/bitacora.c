@@ -22,7 +22,7 @@ void new_binnacle()
 
 void update_binnacle(nave* jugador, int nivel)
 {
-    FILE *binnacle = fopen(BINNACLE_DIR, "w");
+    FILE *binnacle = fopen(BINNACLE_DIR, "a");
 
     if (binnacle != NULL)
     {

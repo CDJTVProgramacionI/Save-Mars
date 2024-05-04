@@ -19,7 +19,9 @@ int get_number(FILE *file)
         }
         num[tam - 1] = fgetc(file);
         tam++;
-    } while (!feof(file) && num[tam - 2] != ','); //Hasta fin de archivo o encontrar una coma
+
+    //Hasta fin de archivo, encontrar una coma o un salto de línea
+    } while (!feof(file) && num[tam - 2] != ',' && num[tam-2]!='\n');
     return atoi(num);
 }
 
