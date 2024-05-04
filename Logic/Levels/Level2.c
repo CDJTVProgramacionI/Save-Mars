@@ -6,6 +6,7 @@
 
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
+#include "../../Data/data.h"
 
 #define MAXMISILES 7800
 #define MAXVIDAS 1900
@@ -22,6 +23,9 @@ void nivel2()
     objeto *objeto_actual;
     char op = 'c';
     int *dist_obstaculos = distanciazar();
+
+    //Crear bitácora para el nivel
+    new_binnacle();
 
     // Datos del jugador
     nave jugador = {MAXVIDAS, MAXMISILES, 0, MAXVEL, 0};
@@ -60,8 +64,11 @@ void nivel2()
         // Display
         display(jugador);
 
-        // Generar objeto al azar
-        objeto_actual = objetoaleatorio(objetosPorNivel, MAXOBJETOS);
+        // Generar objeto al azar si la última decisión fue capturar, destruir o esquivar
+        if(tolower(op) == 'c' || tolower(op) == 'd' || tolower(op) == 'e')
+        {
+            objeto_actual = objetoaleatorio(objetosPorNivel, MAXOBJETOS);
+        }
 
         // Mostrar objeto generado
         printf("Un %s" WHITE " se encuentra a %d km de distancia\n", objeto_actual->nombre, distancia);
@@ -80,17 +87,19 @@ void nivel2()
                 {
                     case 's':
                     case 'S':
-                        seguir_adelante_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
+                        jugador = seguir_adelante_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
                         break;
                     // Evitar un obstáculo
                     case 'E':
                     case 'e':
-                        evitar_obstaculo(distancia, objeto_actual, jugador);
+                        jugador = evitar_obstaculo(distancia, objeto_actual, jugador);
+                        contdecisiones++;
                         break;
                     // Destruir un obstáculo
                     case 'D':
                     case 'd':
-                        destruir_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
+                        jugador = destruir_obstaculo(distancia, objeto_actual, jugador, MAXVEL);
+                        contdecisiones++;
                         break;
                     default:
                         printf("No presionó una opción válida.\n");
@@ -113,7 +122,8 @@ void nivel2()
                     // Decisiones para capturar o esquivar
                     case 'c':
                     case 'C':
-                        capturar_capsula(distancia, objeto_actual, jugador);
+                        jugador = capturar_capsula(distancia, objeto_actual, jugador);
+                        contdecisiones++;
                         break;
                     case 's':
                     case 'S':
@@ -134,19 +144,24 @@ void nivel2()
         }
 
         entercontinuar();
+        update_binnacle(&jugador, NIVEL + 1);
     }
 
     free(objetosPorNivel);
+    free(objeto_actual);
+    free(dist_obstaculos);
 
     // Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
     if (jugador.misiles >= MINMISILES && jugador.capsvid >= MINVIDAS)
     {
+        save_results(&jugador, 1);
         nivel3();
         printf("Ganaste el nivel\n");
         entercontinuar();
     }
     else
     {
+        save_results(&jugador, 0);
         if(perder() == 's')
         {
             nivel2();
