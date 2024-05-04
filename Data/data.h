@@ -14,7 +14,7 @@ int* read_n_outputs(const char*, int);
 void new_binnacle();
 void update_binnacle(nave*, int);
 
-void save_results(int, nave*, int);
+void save_results(nave*, int);
 
 
 #endif

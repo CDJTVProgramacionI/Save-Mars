@@ -6,6 +6,7 @@
 
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
+#include "../../Data/data.h"
 
 #define MAXMISILES 8000
 #define MAXVIDAS 2000
@@ -17,6 +18,7 @@
 
 void nivel1()
 {
+    new_binnacle(); //Crea una nueva bitácora para el nivel
     short int contdecisiones = 1;
     int distancia, supera = 0;
     objeto *objeto_actual;
@@ -145,6 +147,7 @@ void nivel1()
         }
 
         entercontinuar();
+        update_binnacle(&jugador, NIVEL + 1);
     }
 
     free(objetosPorNivel);
@@ -152,12 +155,14 @@ void nivel1()
     // Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
     if (jugador.misiles >= MINMISILES && jugador.capsvid >= MINVIDAS)
     {
+        save_results(&jugador, 1);
         nivel2();
         printf("Ganaste el nivel\n");
         entercontinuar();
     }
     else
     {
+        save_results(&jugador, 0);
         if (perder() == 's')
         {
             nivel1();

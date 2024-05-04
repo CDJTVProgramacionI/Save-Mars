@@ -4,12 +4,12 @@
 #include "data.h"
 #include "../Logic/Structs/structs.h"
 
-void save_results(int num_juego, nave *jugador, int resultado)
+void save_results(nave *jugador, int resultado)
 {
     FILE *results = fopen(RESULT_DIR, "a");
     if(results != NULL)
     {
-        fprintf(results, "%d,%d,%d,%d,%d\n", num_juego, jugador->capsvid, jugador->misiles, jugador->objetosCapturados, resultado);
+        fprintf(results, "%d,%d,%d,%d\n", jugador->capsvid, jugador->misiles, jugador->objetosCapturados, resultado);
     }
     else
     {
