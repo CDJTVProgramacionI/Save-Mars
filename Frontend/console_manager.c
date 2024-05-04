@@ -38,6 +38,6 @@ void setup_console()
 void entercontinuar()
 {
     printf(WHITE "Presiona enter para continuar...");
-    getch();
+    while (getch() != 13);
     printf("\e[1;1H\e[2J");
 }
