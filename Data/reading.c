@@ -31,16 +31,22 @@ int *read_n_outputs(FILE* file, int output_size)
     int *data = calloc(output_size, sizeof(int));
 
     //Verificar que no hayan errores
-    if (data == NULL || file == NULL)
+    if (file == NULL)
+    {
+        printf("Debes jugar antes de ver tus estadísticas");
+    }
+    else if(data == NULL)
     {
         printf("Ha ocurrido un error");
-        exit(0);
+        exit(1);
     }
-
-    // Leer números
-    for (int i = 0; i < output_size; i++)
+    else
     {
-        data[i] = get_number(file);
+        // Leer números
+        for (int i = 0; i < output_size; i++)
+        {
+            data[i] = get_number(file);
+        }
     }
 
     return data;
