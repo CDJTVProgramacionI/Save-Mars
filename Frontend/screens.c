@@ -54,6 +54,7 @@ char menu()
 // Instrucciones por nivel
 void imprimir_instrucciones_nivel(int nivel, int maxvidas, int maxmisiles, int minmisiles, int minvidas, objeto *objetosPorNivel)
 {
+    nivel++;
     printf("NIVEL %d\n", nivel);
     printf("En este nivel, te enfrentarás a:\n");
     switch (nivel)

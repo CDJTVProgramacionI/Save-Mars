@@ -83,12 +83,12 @@ void main()
                 nivel1();
                 break;
             case '2':
-                // Imprimir última bitácora
-                imprimirUltimaBitacora();
-                break;
-            case '3':
                 // Imprimir historico de juegos
                 imprimirHistorico();
+                break;
+            case '3':
+                // Imprimir última bitácora
+                imprimirUltimaBitacora();
                 break;
             case '4': // Salir
                 printf("¡Gracias por jugar!\n");
