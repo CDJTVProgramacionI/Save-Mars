@@ -8,6 +8,8 @@
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
 #include "../../Data/data.h"
+#include "../Utils/utils.h"
+
 
 #define MAXMISILES 8000
 #define MAXVIDAS 2000
@@ -109,7 +111,7 @@ void nivel1()
                     }
                     else
                     {
-                        jugador = (distancia, *objeto_actual, jugador, 12);
+                        jugador = destruir_obstaculo(distancia, objeto_actual, jugador, 12);
                     }
                     contdecisiones++;
                     break;

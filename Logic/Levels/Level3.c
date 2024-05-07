@@ -7,6 +7,8 @@
 #include "../../Frontend/frontend.h"
 #include "../Structs/structs.h"
 #include "../../Data/data.h"
+#include "../Utils/utils.h"
+
 
 #define MAXMISILES 7400
 #define MAXVIDAS 1500
