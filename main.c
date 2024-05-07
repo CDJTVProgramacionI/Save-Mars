@@ -15,13 +15,14 @@ void imprimirUltimaBitacora()
     }
 
     printf("----------------- BITÁCORA -----------------------\n");
-    while (!feof(bitacora))
+    int* data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
+    while (data != NULL)
     {
-        int* data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
         printf("**********************************************\n");
         printf("Nivel: %d, turno: %d\n", data[2], data[3]);
         printf("Distancia alcanzada: %d\n", data[0]);
         printf("Velocidad del turno: %d\n", data[1]);
+        data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
     }
     fclose(bitacora);    
 }
