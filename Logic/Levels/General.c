@@ -32,6 +32,5 @@ char perder(nave jugador)
 
 void finalizarJuego()
 {
-    printf("FIN DEL JUEGO");
-    entercontinuar();
+    printf("FIN DEL JUEGO\n");
 }

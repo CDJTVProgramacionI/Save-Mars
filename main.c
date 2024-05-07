@@ -17,8 +17,8 @@ void imprimirUltimaBitacora()
     printf("----------------- BITÁCORA -----------------------\n");
     while (!feof(bitacora))
     {
-        printf("**********************************************\n");
         int* data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
+        printf("**********************************************\n");
         printf("Nivel: %d, turno: %d\n", data[2], data[3]);
         printf("Distancia alcanzada: %d\n", data[0]);
         printf("Velocidad del turno: %d\n", data[1]);
@@ -37,11 +37,12 @@ void imprimirHistorico()
         return;
     }
 
+    int* data = read_n_outputs(archivo, RESULT_OUTPUTS);    
+
     printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
-    while(!feof(archivo))
+    while(data != NULL)
     {
         printf("*********************************************************\n");
-        int* data = read_n_outputs(archivo, RESULT_OUTPUTS);
         printf("Juego: %d\n", juegos);
         printf("Capsulas de vida finales: %d\n", data[0]);
         printf("Misiles finales: %d\n", data[1]);
@@ -53,6 +54,7 @@ void imprimirHistorico()
             printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
         }
         juegos++;
+        data = read_n_outputs(archivo, RESULT_OUTPUTS);
     }
     fclose(archivo); 
 }

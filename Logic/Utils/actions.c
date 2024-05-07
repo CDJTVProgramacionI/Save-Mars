@@ -68,4 +68,5 @@ nave capturar_capsula(int distancia, objeto *objeto_actual, nave jugador)
         jugador.capsvid -= objeto_actual->vidasIncorrecto;
     }
     jugador.dist += distancia;
+    return jugador;
 }

@@ -17,7 +17,7 @@ void update_binnacle(nave* jugador, int nivel, short turno)
     if (binnacle != NULL)
     {
         // Datos de la bitácora
-        fprintf(binnacle, "%d,%d,%d,%d", jugador->dist, jugador->velocidad, nivel, turno);
+        fprintf(binnacle, "%d,%d,%d,%d\n", jugador->dist, jugador->velocidad, nivel, turno);
     }
     else // Hubo un error al abrir el archivo
     {

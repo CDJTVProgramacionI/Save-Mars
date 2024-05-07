@@ -5,23 +5,24 @@
 //Obtener un número
 int get_number(FILE *file)
 {
-    char *num;
+    char *num = calloc(sizeof(char), 1);
+    char actual = '\0';
     int tam = 1;
 
-    do
+    while (!feof(file) && actual != ',' && actual !='\n')
     {
+        actual = fgetc(file);
+        num[tam - 1] = actual;
+        tam++;
         //Añadir caracteres a arreglo dinámico
         num = (char *)realloc(num, tam * sizeof(char));
         if (num == NULL)
         {
             printf("Ha ocurrido un error");
-            exit(0);
+            exit(1);
         }
-        num[tam - 1] = fgetc(file);
-        tam++;
+    }
 
-    //Hasta fin de archivo, encontrar una coma o un salto de línea
-    } while (!feof(file) && num[tam - 2] != ',' && num[tam-2]!='\n');
     return atoi(num);
 }
 
@@ -42,6 +43,7 @@ int *read_n_outputs(FILE* file, int output_size)
         for (int i = 0; i < output_size; i++)
         {
             data[i] = get_number(file);
+            if(feof(file)) return NULL;
         }
     }
 

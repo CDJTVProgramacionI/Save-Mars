@@ -54,12 +54,13 @@ void nivel3()
 
     imprimir_instrucciones_nivel(NIVEL, MAXVIDAS, MAXMISILES, MAXMISILES, MINVIDAS, objetosPorNivel);
 
-    while (jugador.misiles >= MAXMISILES && jugador.capsvid >= MAXVIDAS && contdecisiones <= 7)
+    while (jugador.misiles >= MINMISILES && jugador.capsvid >= MINVIDAS && contdecisiones <= 7)
     {
         // Si ya avanzó 100 km, variar la velocidad aleatoriamente
         if (jugador.dist - supera >= 100)
         {
             jugador.velocidad = velocidad(13, 28);
+            supera=jugador.dist;
         }
 
         // Calcular distancia
@@ -148,11 +149,10 @@ void nivel3()
         }
 
         entercontinuar();
-        update_binnacle(&jugador, NIVEL + 1, contdecisiones);
+        update_binnacle(&jugador, NIVEL + 1, contdecisiones-1);
     }
 
     free(objetosPorNivel);
-    free(objeto_actual);
     free(dist_obstaculos);
 
     // Compara la cantidad de misiles y de capsulas restantes y define si pierdes o ganas
