@@ -8,6 +8,12 @@
 void imprimirUltimaBitacora()
 {
     FILE *bitacora = fopen(BINNACLE_DIR, "r");
+    if(bitacora == NULL)
+    {
+        printf("Necesitas jugar primero\n");
+        return;
+    }
+
     printf("----------------- BITÁCORA -----------------------\n");
     while (!feof(bitacora))
     {
@@ -24,6 +30,13 @@ void imprimirHistorico()
 {
     FILE *archivo = fopen(RESULT_DIR, "r");
     int juegos = 1;
+
+    if(archivo == NULL)
+    {
+        printf("Necesitas jugar primero\n");
+        return;
+    }
+
     printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
     while(!feof(archivo))
     {
@@ -78,7 +91,7 @@ void main()
                 imprimirHistorico();
                 break;
             case '4': // Salir
-                printf("¡Gracias por jugar!");
+                printf("¡Gracias por jugar!\n");
                 break;
             default:
                 printf("Opción no válida\n");

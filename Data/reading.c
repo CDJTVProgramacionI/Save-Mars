@@ -31,11 +31,7 @@ int *read_n_outputs(FILE* file, int output_size)
     int *data = calloc(output_size, sizeof(int));
 
     //Verificar que no hayan errores
-    if (file == NULL)
-    {
-        printf("Debes jugar antes de ver tus estadísticas");
-    }
-    else if(data == NULL)
+    if(data == NULL)
     {
         printf("Ha ocurrido un error");
         exit(1);
