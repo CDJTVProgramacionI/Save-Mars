@@ -19,10 +19,16 @@
 #define WHITE "\e[97m"
 #define RESET "\e[0m"
 
+#include "../Logic/Structs/structs.h"
+
 void pantallaprincipal();
 char menu();
 
 void setup_console();
 void entercontinuar();
+
+void display(nave);
+void imprimir_instrucciones_nivel(int, int, int, int, int, objeto *);
+
 
 #endif

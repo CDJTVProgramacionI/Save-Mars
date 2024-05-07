@@ -6,12 +6,12 @@
 #include <conio.h>
 #include <ctype.h>
 
-char perder()
+char perder(nave jugador)
 {
     char op;
 
     printf("Perdiste\n");
-    display(); // Mostrar últimos resultados
+    display(jugador); // Mostrar últimos resultados
 
     // obtener input del usuario
     do

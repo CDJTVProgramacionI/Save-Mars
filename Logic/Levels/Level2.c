@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <conio.h>
 
 #include "../../Frontend/frontend.h"
@@ -49,7 +50,7 @@ void nivel2()
     objetosPorNivel[1].vidasCorrecto = 30;
     objetosPorNivel[1].vidasIncorrecto = 20;
 
-    imprimir_instrucciones_nivel(NIVEL);
+    imprimir_instrucciones_nivel(NIVEL, MAXVIDAS, MAXMISILES, MAXMISILES, MINVIDAS, objetosPorNivel);
 
     while (jugador.misiles >= MAXMISILES && jugador.capsvid >= MAXVIDAS && contdecisiones <= 7)
     {
@@ -163,7 +164,7 @@ void nivel2()
     else
     {
         save_results(&jugador, 0);
-        if(perder() == 's')
+        if(perder(jugador) == 's')
         {
             nivel2();
         }

@@ -3,6 +3,7 @@
 #include "Logic/Levels/levels.h"
 #include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void imprimirUltimaBitacora()
 {

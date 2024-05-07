@@ -53,7 +53,7 @@ void nivel1()
     objetosPorNivel[2].nombre = BRIGHT_GREEN "PLANETA CON VIDA";
     objetosPorNivel[2].maxDist = 10000;
 
-    imprimir_instrucciones_nivel(NIVEL);
+    imprimir_instrucciones_nivel(NIVEL, MAXVIDAS, MAXMISILES, MAXMISILES, MINVIDAS, objetosPorNivel);
 
     while (jugador.misiles >= MAXMISILES && jugador.capsvid >= MAXVIDAS && contdecisiones <= 7)
     {
@@ -176,7 +176,7 @@ void nivel1()
     else
     {
         save_results(&jugador, 0);
-        if (perder() == 's')
+        if (perder(jugador) == 's')
         {
             nivel1();
         }
