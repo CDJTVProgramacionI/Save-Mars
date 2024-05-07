@@ -11,18 +11,19 @@ void imprimirUltimaBitacora()
     if(bitacora == NULL)
     {
         printf("Necesitas jugar primero\n");
-        return;
     }
-
-    printf("----------------- BITÁCORA -----------------------\n");
-    int* data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
-    while (data != NULL)
+    else
     {
-        printf("**********************************************\n");
-        printf("Nivel: %d, turno: %d\n", data[2], data[3]);
-        printf("Distancia alcanzada: %d\n", data[0]);
-        printf("Velocidad del turno: %d\n", data[1]);
-        data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
+        printf("----------------- BITÁCORA -----------------------\n");
+        int* data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
+        while (data != NULL)
+        {
+            printf("**********************************************\n");
+            printf("Nivel: %d, turno: %d\n", data[2], data[3]);
+            printf("Distancia alcanzada: %d\n", data[0]);
+            printf("Velocidad del turno: %d\n", data[1]);
+            data = read_n_outputs(bitacora, BINNACLE_OUTPUTS);
+        }
     }
     fclose(bitacora);    
 }
@@ -35,27 +36,28 @@ void imprimirHistorico()
     if(archivo == NULL)
     {
         printf("Necesitas jugar primero\n");
-        return;
     }
-
-    int* data = read_n_outputs(archivo, RESULT_OUTPUTS);    
-
-    printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
-    while(data != NULL)
+    else
     {
-        printf("*********************************************************\n");
-        printf("Juego: %d\n", juegos);
-        printf("Capsulas de vida finales: %d\n", data[0]);
-        printf("Misiles finales: %d\n", data[1]);
-        printf("Objetos de interés capturados: %d\n", data[2]);
-        printf("Resultado del juego: %s\n", data[3] == 1 ? "Ganó" : "Perdió");
-        if(juegos%5 == 0)
+        int* data = read_n_outputs(archivo, RESULT_OUTPUTS);    
+
+        printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
+        while(data != NULL)
         {
-            entercontinuar();
-            printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
+            printf("*********************************************************\n");
+            printf("Juego: %d\n", juegos);
+            printf("Capsulas de vida finales: %d\n", data[0]);
+            printf("Misiles finales: %d\n", data[1]);
+            printf("Objetos de interés capturados: %d\n", data[2]);
+            printf("Resultado del juego: %s\n", data[3] == 1 ? "Ganó" : "Perdió");
+            if(juegos%5 == 0)
+            {
+                entercontinuar();
+                printf("----------------- HISTÓRICO DE JUEGOS -----------------------\n");
+            }
+            juegos++;
+            data = read_n_outputs(archivo, RESULT_OUTPUTS);
         }
-        juegos++;
-        data = read_n_outputs(archivo, RESULT_OUTPUTS);
     }
     fclose(archivo); 
 }
